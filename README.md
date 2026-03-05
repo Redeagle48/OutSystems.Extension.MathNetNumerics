@@ -1,6 +1,6 @@
 # OutSystems.Extension.MathNetNumerics
 
-> **What is this?** A .NET 8.0 External Library for OutSystems Developer Cloud (ODC) that wraps [MathNet.Numerics](https://numerics.mathdotnet.com/) to provide 47 server actions for financial analysis, statistics, probability distributions, regression, interpolation, integration, and root finding — directly inside OutSystems applications.
+> **What is this?** A .NET 8.0 External Library for OutSystems Developer Cloud (ODC) that wraps [MathNet.Numerics](https://numerics.mathdotnet.com/) to provide 48 server actions for financial analysis, statistics, probability distributions, regression, interpolation, integration, and root finding — directly inside OutSystems applications.
 
 [![CI - Run Tests](https://github.com/user/OutSystems.Extension.MathNetNumerics/actions/workflows/test.yml/badge.svg)](https://github.com/user/OutSystems.Extension.MathNetNumerics/actions/workflows/test.yml)
 [![.NET 8.0](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
@@ -11,7 +11,7 @@
 
 ## Why Use This Extension?
 
-OutSystems ODC does not natively support advanced mathematical operations such as NPV, IRR, probability distributions, or regression analysis. This external library bridges that gap by exposing 47 validated, production-ready server actions built on MathNet.Numerics — one of the most widely used open-source numerical libraries for .NET, with over 58 million NuGet downloads.
+OutSystems ODC does not natively support advanced mathematical operations such as NPV, IRR, probability distributions, or regression analysis. This external library bridges that gap by exposing 48 validated, production-ready server actions built on MathNet.Numerics — one of the most widely used open-source numerical libraries for .NET, with over 58 million NuGet downloads.
 
 **Key capabilities:**
 
@@ -47,7 +47,7 @@ dotnet build OutSystems.Extension.MathNetNumerics/OutSystems.Extension.MathNetNu
 
 ### 2. Run Tests
 
-The project includes 199 unit tests covering all 47 server actions and input validation edge cases.
+The project includes 199 unit tests covering all 48 server actions and input validation edge cases.
 
 ```bash
 dotnet test OutSystems.Extension.MathNetNumerics/OutSystems.Extension.MathNetNumerics.sln \
@@ -72,23 +72,23 @@ Upload `MathNetNumerics.zip` to your ODC portal under **External Libraries**.
 
 ## How to Use in OutSystems
 
-After uploading the library to ODC, the following seven service actions modules become available in Service Studio:
+After uploading the library to ODC, the `MathNetNumerics` module becomes available in Service Studio with 48 server actions across 7 domains:
 
-| ODC Module | Domain | Actions |
-|------------|--------|---------|
-| `MathNet_Financial` | Time value of money, loan analysis, depreciation | 8 |
-| `MathNet_Statistics` | Descriptive statistics, correlation | 11 |
-| `MathNet_Distributions` | PDF, CDF, inverse CDF, random sampling | 12 |
-| `MathNet_Regression` | Curve fitting, prediction, R-squared | 7 |
-| `MathNet_Interpolation` | Linear, cubic spline, polynomial interpolation | 5 |
-| `MathNet_Integration` | Trapezoidal rule, Simpson's rule | 2 |
-| `MathNet_RootFinding` | Bisection, Brent's method, break-even | 3 |
+| Domain | Actions | Includes |
+|--------|---------|----------|
+| Financial | 8 | NPV, IRR, amortization, compound interest, depreciation |
+| Statistics | 11 | Mean, variance, skewness, kurtosis, correlation, percentiles |
+| Distributions | 12 | Normal, Poisson, Binomial, Exponential, Student's t, Chi-squared |
+| Regression | 7 | Linear, polynomial, exponential, power fit, R-squared |
+| Interpolation | 5 | Linear spline, cubic spline, polynomial (Floater-Hormann) |
+| Integration | 2 | Trapezoidal rule, Simpson's rule |
+| Root Finding | 3 | Bisection, Brent's method, break-even |
 
 ---
 
 ## API Reference
 
-### How to Calculate NPV, IRR, and Amortization in OutSystems (MathNet_Financial)
+### How to Calculate NPV, IRR, and Amortization in OutSystems
 
 8 server actions for financial calculations. All rates are expressed as decimals (e.g., `0.05` = 5%).
 
@@ -111,7 +111,7 @@ In OutSystems, drag the `PaymentAmount` action and set:
 - `totalPeriods` = `360` (30 years x 12 months)
 - Returns: `1199.10` (monthly payment in the same currency unit)
 
-### How to Compute Mean, Standard Deviation, and Correlation in OutSystems (MathNet_Statistics)
+### How to Compute Mean, Standard Deviation, and Correlation in OutSystems
 
 11 server actions for descriptive statistics and correlation analysis.
 
@@ -129,7 +129,7 @@ In OutSystems, drag the `PaymentAmount` action and set:
 | `Max` | Maximum value | 1 |
 | `Summary` | Returns `StatisticsSummary` with all 8 measures | 4 |
 
-### How to Evaluate Probability Distributions in OutSystems (MathNet_Distributions)
+### How to Evaluate Probability Distributions in OutSystems
 
 12 server actions covering six probability distributions.
 
@@ -148,7 +148,7 @@ In OutSystems, drag the `PaymentAmount` action and set:
 | `StudentTInverseCdf` | Student's t | Critical value for hypothesis testing |
 | `ChiSquaredCdf` | Chi-squared | Cumulative probability for goodness-of-fit tests |
 
-### How to Perform Regression and Curve Fitting in OutSystems (MathNet_Regression)
+### How to Perform Regression and Curve Fitting in OutSystems
 
 7 server actions for regression analysis and prediction.
 
@@ -162,7 +162,7 @@ In OutSystems, drag the `PaymentAmount` action and set:
 | `ExponentialFit` | y = A * e^(Bx) | `TwoParameterFitResult` (A, B) |
 | `PowerFit` | y = A * x^B | `TwoParameterFitResult` (A, B) |
 
-### How to Interpolate Data Points in OutSystems (MathNet_Interpolation)
+### How to Interpolate Data Points in OutSystems
 
 5 server actions for estimating values between known data points.
 
@@ -174,7 +174,7 @@ In OutSystems, drag the `PaymentAmount` action and set:
 | `BulkLinearInterpolate` | Linear spline | Linear estimates for a list of x points |
 | `BulkCubicSplineInterpolate` | Natural cubic spline | Cubic spline estimates for a list of x points |
 
-### How to Compute Numerical Integrals in OutSystems (MathNet_Integration)
+### How to Compute Numerical Integrals in OutSystems
 
 2 server actions for definite integration.
 
@@ -183,7 +183,7 @@ In OutSystems, drag the `PaymentAmount` action and set:
 | `TrapezoidalFromData` | Trapezoidal rule | Area under curve from paired x,y data points |
 | `PolynomialIntegral` | Simpson's rule (100 subdivisions) | Definite integral of a polynomial over [a, b] |
 
-### How to Find Roots and Break-Even Points in OutSystems (MathNet_RootFinding)
+### How to Find Roots and Break-Even Points in OutSystems
 
 3 server actions for equation solving.
 
@@ -212,7 +212,7 @@ Four structures are returned by specific actions and are automatically available
 
 ## Input Validation and Security
 
-All 47 server actions validate inputs before execution and throw descriptive exceptions. This prevents silent data corruption and protects against resource exhaustion in a server-side ODC context.
+All 48 server actions validate inputs before execution and throw descriptive exceptions. This prevents silent data corruption and protects against resource exhaustion in a server-side ODC context.
 
 | Validation | Behavior | Exception Type |
 |------------|----------|---------------|
@@ -233,28 +233,24 @@ All validators explicitly reject IEEE 754 special values (`NaN`, `+Infinity`, `-
 
 ```
 OutSystems.Extension.MathNetNumerics/
-├── Interfaces/
-│   ├── IFinancial.cs              # 8 actions — NPV, IRR, amortization, depreciation
-│   ├── IStatistics.cs             # 11 actions — mean, variance, correlation
-│   ├── IDistributions.cs          # 12 actions — Normal, Poisson, Binomial, etc.
-│   ├── IRegression.cs             # 7 actions — linear, polynomial, exponential fit
-│   ├── IInterpolation.cs          # 5 actions — linear, cubic spline, polynomial
-│   ├── IIntegration.cs            # 2 actions — trapezoidal, Simpson's rule
-│   └── IRootFinding.cs            # 3 actions — bisection, Brent, break-even
+├── IMathNetNumerics.cs            # Single [OSInterface] with all 48 [OSAction] methods
+├── MathNetNumericsActions.cs      # Implementation — delegates to 7 domain action classes
 ├── Implementation/
-│   ├── FinancialActions.cs
-│   ├── StatisticsActions.cs
-│   ├── DistributionsActions.cs
-│   ├── RegressionActions.cs
-│   ├── InterpolationActions.cs
-│   ├── IntegrationActions.cs
-│   └── RootFindingActions.cs
+│   ├── FinancialActions.cs        # 8 actions — NPV, IRR, amortization, depreciation
+│   ├── StatisticsActions.cs       # 11 actions — mean, variance, correlation
+│   ├── DistributionsActions.cs    # 12 actions — Normal, Poisson, Binomial, etc.
+│   ├── RegressionActions.cs       # 7 actions — linear, polynomial, exponential fit
+│   ├── InterpolationActions.cs    # 5 actions — linear, cubic spline, polynomial
+│   ├── IntegrationActions.cs      # 2 actions — trapezoidal, Simpson's rule
+│   └── RootFindingActions.cs      # 3 actions — bisection, Brent, break-even
 ├── Models/
 │   ├── AmortizationScheduleEntry.cs
 │   ├── StatisticsSummary.cs
 │   ├── LinearRegressionResult.cs
 │   └── TwoParameterFitResult.cs
 ├── MathHelper.cs                  # Centralized input validation (ValidateFinite, ValidatePositive, etc.)
+├── resources/
+│   └── MathNetNumerics_icon.png   # ODC module icon (512x512)
 └── OutSystems.Extension.MathNetNumerics.csproj
 
 OutSystems.Extension.MathNetNumerics.UnitTests/
@@ -292,7 +288,7 @@ Automated dependency updates are managed via [Dependabot](.github/dependabot.yml
 
 ### How do I add this library to my OutSystems ODC application?
 
-Build the project, create the deployment zip using `dotnet publish`, and upload it to your ODC portal under External Libraries. The seven interface modules will appear automatically in Service Studio.
+Build the project, create the deployment zip using `dotnet publish`, and upload it to your ODC portal under External Libraries. The `MathNetNumerics` module will appear automatically in Service Studio.
 
 ### What happens if I pass invalid inputs?
 

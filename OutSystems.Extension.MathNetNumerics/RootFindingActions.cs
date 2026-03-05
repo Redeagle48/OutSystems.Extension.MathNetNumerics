@@ -5,7 +5,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements root-finding algorithms and break-even analysis.
 /// </summary>
-public class RootFindingActions : IRootFinding
+public class RootFindingActions
 {
     /// <inheritdoc />
     public double BisectionRoot(List<double> coefficients, double lowerBound, double upperBound)

@@ -3,7 +3,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements financial calculations including time value of money, depreciation, and amortization.
 /// </summary>
-public class FinancialActions : IFinancial
+public class FinancialActions
 {
     /// <inheritdoc />
     public double FutureValue(double presentValue, double annualRate, int periods)

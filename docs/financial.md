@@ -1,6 +1,6 @@
 # How to Calculate NPV, IRR, and Amortization in OutSystems
 
-The `MathNet_Financial` module provides 8 server actions for time value of money calculations, loan analysis, and depreciation in OutSystems Developer Cloud (ODC).
+The `MathNetNumerics` module provides 8 Financial server actions for time value of money calculations, loan analysis, and depreciation in OutSystems Developer Cloud (ODC).
 
 All interest rates are expressed as decimals: `0.05` means 5%, `0.10` means 10%.
 

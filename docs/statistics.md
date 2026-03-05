@@ -1,6 +1,6 @@
 # How to Compute Mean, Standard Deviation, and Correlation in OutSystems
 
-The `MathNet_Statistics` module provides 11 server actions for descriptive statistics and correlation analysis in OutSystems Developer Cloud (ODC). All operations delegate to MathNet.Numerics.Statistics.
+The `MathNetNumerics` module provides 11 Statistics server actions for descriptive statistics and correlation analysis in OutSystems Developer Cloud (ODC). All operations delegate to MathNet.Numerics.Statistics.
 
 ## Actions
 

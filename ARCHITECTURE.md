@@ -4,7 +4,7 @@ This document explains the design decisions behind the OutSystems.Extension.Math
 
 ## Overview
 
-The library wraps [MathNet.Numerics](https://numerics.mathdotnet.com/) (58M+ NuGet downloads) as an [OutSystems Developer Cloud (ODC) External Library](https://success.outsystems.com/documentation/outsystems_developer_cloud/building_apps/extend_your_apps_with_external_logic_using_custom_code/external_libraries_sdk/). It exposes 47 server actions across 7 modules, targeting .NET 8.0.
+The library wraps [MathNet.Numerics](https://numerics.mathdotnet.com/) (58M+ NuGet downloads) as an [OutSystems Developer Cloud (ODC) External Library](https://success.outsystems.com/documentation/outsystems_developer_cloud/building_apps/extend_your_apps_with_external_logic_using_custom_code/external_libraries_sdk/). It exposes 48 server actions through a single ODC module, targeting .NET 8.0.
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -13,13 +13,13 @@ The library wraps [MathNet.Numerics](https://numerics.mathdotnet.com/) (58M+ NuG
 └──────────────────────┬──────────────────────────┘
                        │ [OSInterface] / [OSAction]
 ┌──────────────────────▼──────────────────────────┐
-│         Interface Layer (I*.cs)                  │
-│   7 interfaces with [OSInterface] attributes     │
+│     IMathNetNumerics.cs (single [OSInterface])   │
+│   48 [OSAction] methods across 7 domains         │
 │   XML doc comments for IDE + agent indexing      │
 └──────────────────────┬──────────────────────────┘
-                       │ implements
+                       │ implements (composition)
 ┌──────────────────────▼──────────────────────────┐
-│      Implementation Layer (*Actions.cs)          │
+│  MathNetNumericsActions → 7 domain classes       │
 │   Input validation via MathHelper                │
 │   Delegates to MathNet.Numerics                  │
 └──────────────┬───────────────────┬──────────────┘
@@ -35,17 +35,19 @@ The library wraps [MathNet.Numerics](https://numerics.mathdotnet.com/) (58M+ NuG
                        └──────────────────────────┘
 ```
 
-## Why Interfaces Are Separated from Implementations
+## Why a Single Interface with Composition Delegation
 
-The OutSystems.ExternalLibraries.SDK requires `[OSInterface]` attributes on interfaces, not classes. ODC discovers available server actions by scanning for interfaces decorated with these attributes.
+ODC requires exactly one `[OSInterface]` per external library. The `IMathNetNumerics` interface defines all 48 `[OSAction]` methods in a single file, organized by `#region` blocks (Financial, Statistics, Distributions, Regression, Interpolation, Integration, Root Finding).
 
-Separating interfaces from implementations provides:
+The `MathNetNumericsActions` class implements this interface by delegating to 7 domain action classes via composition:
 
-1. **ODC contract clarity** — The interface files define exactly what OutSystems developers see in Service Studio. The `[OSAction(Description)]` and `[OSStructure]` attributes control the low-code experience.
+1. **ODC compatibility** — A single `[OSInterface]` ensures successful upload to the ODC portal. All 48 actions appear under one `MathNetNumerics` module in Service Studio.
 
-2. **Testability** — Unit tests instantiate the implementation classes directly (`new FinancialActions()`) without needing the ODC runtime. This enables standard xUnit testing with `dotnet test`.
+2. **Separation of concerns** — Each domain class (`FinancialActions`, `StatisticsActions`, etc.) contains its own logic and validation. The composition class is a thin routing layer.
 
-3. **Documentation surface** — XML doc comments on the interfaces are consumed by IDEs, NuGet package browsers, and AI coding assistants. The `[OSAction]` descriptions are consumed by OutSystems at runtime. Both audiences are served without duplication.
+3. **Testability** — Unit tests instantiate the domain classes directly (`new FinancialActions()`) without needing the ODC runtime. This enables standard xUnit testing with `dotnet test`.
+
+4. **Documentation surface** — XML doc comments on the interface are consumed by IDEs, NuGet package browsers, and AI coding assistants. The `[OSAction]` descriptions are consumed by OutSystems at runtime. Both audiences are served without duplication.
 
 ## Why MathHelper Centralizes Validation
 
@@ -115,7 +117,7 @@ Tests are split into two categories per module:
 | Functional | `*ActionsTests.cs` | Verify correct mathematical output with known inputs | 113 |
 | Validation | `*ValidationTests.cs` | Verify proper rejection of invalid inputs (null, empty, NaN, Infinity, out of range) | 86 |
 
-Total: 199 tests covering all 47 server actions.
+Total: 199 tests covering all 48 server actions.
 
 ## Security Considerations
 

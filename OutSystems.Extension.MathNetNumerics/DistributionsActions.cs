@@ -5,7 +5,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements probability distribution functions for Normal, Exponential, Poisson, Binomial, Student's t, and Chi-squared distributions.
 /// </summary>
-public class DistributionsActions : IDistributions
+public class DistributionsActions
 {
     /// <inheritdoc />
     public double NormalPdf(double mean, double stddev, double x)

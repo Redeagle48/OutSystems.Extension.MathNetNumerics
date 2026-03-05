@@ -5,7 +5,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements numerical integration using trapezoidal and Simpson's composite rules.
 /// </summary>
-public class IntegrationActions : IIntegration
+public class IntegrationActions
 {
     /// <inheritdoc />
     public double TrapezoidalFromData(List<double> xValues, List<double> yValues)

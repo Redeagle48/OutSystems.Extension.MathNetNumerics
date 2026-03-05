@@ -6,7 +6,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements regression analysis, curve fitting, and prediction models.
 /// </summary>
-public class RegressionActions : IRegression
+public class RegressionActions
 {
     /// <inheritdoc />
     public LinearRegressionResult LinearRegression(List<double> xValues, List<double> yValues)

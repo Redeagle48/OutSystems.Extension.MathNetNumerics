@@ -1,6 +1,6 @@
 # How to Interpolate Data Points in OutSystems
 
-The `MathNet_Interpolation` module provides 5 server actions for estimating values between known data points in OutSystems Developer Cloud (ODC).
+The `MathNetNumerics` module provides 5 Interpolation server actions for estimating values between known data points in OutSystems Developer Cloud (ODC).
 
 ## Actions
 

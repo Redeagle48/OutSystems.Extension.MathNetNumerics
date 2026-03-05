@@ -1,6 +1,6 @@
 # How to Compute Numerical Integrals in OutSystems
 
-The `MathNet_Integration` module provides 2 server actions for definite integration and area computation in OutSystems Developer Cloud (ODC).
+The `MathNetNumerics` module provides 2 Integration server actions for definite integration and area computation in OutSystems Developer Cloud (ODC).
 
 ## Actions
 

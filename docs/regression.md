@@ -1,6 +1,6 @@
 # How to Perform Regression and Curve Fitting in OutSystems
 
-The `MathNet_Regression` module provides 7 server actions for regression analysis, curve fitting, and prediction in OutSystems Developer Cloud (ODC).
+The `MathNetNumerics` module provides 7 Regression server actions for regression analysis, curve fitting, and prediction in OutSystems Developer Cloud (ODC).
 
 ## Actions
 

@@ -5,7 +5,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements interpolation methods including linear spline, cubic spline, and polynomial (Floater-Hormann).
 /// </summary>
-public class InterpolationActions : OutSystems.Extension.MathNetNumerics.IInterpolation
+public class InterpolationActions
 {
     /// <inheritdoc />
     public double LinearInterpolate(List<double> xValues, List<double> yValues, double x)

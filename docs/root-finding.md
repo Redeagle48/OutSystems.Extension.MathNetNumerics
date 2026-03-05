@@ -1,6 +1,6 @@
 # How to Find Roots and Break-Even Points in OutSystems
 
-The `MathNet_RootFinding` module provides 3 server actions for equation solving and break-even analysis in OutSystems Developer Cloud (ODC).
+The `MathNetNumerics` module provides 3 Root Finding server actions for equation solving and break-even analysis in OutSystems Developer Cloud (ODC).
 
 ## Actions
 

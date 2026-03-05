@@ -5,7 +5,7 @@ namespace OutSystems.Extension.MathNetNumerics;
 /// <summary>
 /// Implements descriptive statistics, correlation, and summary computations.
 /// </summary>
-public class StatisticsActions : IStatistics
+public class StatisticsActions
 {
     /// <inheritdoc />
     public double Mean(List<double> values)

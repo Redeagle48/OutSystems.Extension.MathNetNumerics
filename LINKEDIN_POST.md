@@ -17,7 +17,7 @@ Here's how we built it:
 
 🛠️ **The stack**
 .NET 8.0 + MathNet.Numerics (58M+ NuGet downloads) + OutSystems.ExternalLibraries.SDK 1.5.0.
-47 server actions. 7 ODC modules. Zero network calls. Pure math.
+48 server actions. 1 ODC module. Zero network calls. Pure math.
 
 📦 **What it covers**
 — Financial: NPV, IRR (Newton-Raphson, 1000 iterations), amortization schedules, compound interest
@@ -31,7 +31,7 @@ Here's how we built it:
 🎯 **The security detail nobody talks about**
 `double.NaN` bypasses standard C# validators. `NaN <= 0` evaluates to `false` in IEEE 754.
 That means `ValidatePositive(double.NaN)` passes silently.
-We had to add explicit `double.IsNaN()` and `double.IsInfinity()` checks across all 47 actions.
+We had to add explicit `double.IsNaN()` and `double.IsInfinity()` checks across all 48 actions.
 Without this, a low-code developer passing bad data gets a silent `NaN` result instead of an error.
 
 💡 **Input validation matters in server-side libraries**
@@ -61,8 +61,8 @@ What's your approach to extending OutSystems with custom .NET logic? Do you unit
 **Recommended format: 4-page PDF carousel (1080x1350px)**
 
 - **Page 1 (Hook):** "OutSystems can't calculate IRR. Here's how to fix it." — dark background, bold white text, OutSystems + .NET logos.
-- **Page 2 (Architecture):** Clean diagram showing: `OutSystems App → [OSInterface] → C# Actions → MathNet.Numerics`. List the 7 modules as boxes.
+- **Page 2 (Architecture):** Clean diagram showing: `OutSystems App → [OSInterface] → C# Actions → MathNet.Numerics`. Show the single MathNetNumerics module with 7 domain groups.
 - **Page 3 (The NaN trap):** Code block showing `ValidatePositive(double.NaN)` passing silently, then the fix with `double.IsNaN()`. Before/after format.
-- **Page 4 (CTA):** "47 actions. 199 tests. 0 network calls. Open source on GitHub." + "Link in the comments."
+- **Page 4 (CTA):** "48 actions. 199 tests. 0 network calls. Open source on GitHub." + "Link in the comments."
 
 **Alternative:** A single clean screenshot of the project structure or the `MathHelper.cs` validation code, with a short caption. Avoid stock photos entirely.

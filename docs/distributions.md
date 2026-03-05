@@ -1,6 +1,6 @@
 # How to Evaluate Probability Distributions in OutSystems
 
-The `MathNet_Distributions` module provides 12 server actions covering six probability distributions in OutSystems Developer Cloud (ODC): Normal, Exponential, Poisson, Binomial, Student's t, and Chi-squared.
+The `MathNetNumerics` module provides 12 Distributions server actions covering six probability distributions in OutSystems Developer Cloud (ODC): Normal, Exponential, Poisson, Binomial, Student's t, and Chi-squared.
 
 ## Normal Distribution
 
