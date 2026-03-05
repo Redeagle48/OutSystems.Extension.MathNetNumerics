@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "OutSystems.Extension.MathNetNumerics"
+abstract: >-
+  An OutSystems Developer Cloud (ODC) External Library that wraps MathNet.Numerics
+  to provide 47 server actions for financial analysis, statistics, probability
+  distributions, regression, interpolation, integration, and root finding.
+version: 1.0.0
+type: software
+license: MIT
+keywords:
+  - outsystems
+  - odc
+  - external-library
+  - mathnet-numerics
+  - financial-calculations
+  - statistics
+  - probability-distributions
+  - regression
+  - interpolation
+  - dotnet
+  - csharp

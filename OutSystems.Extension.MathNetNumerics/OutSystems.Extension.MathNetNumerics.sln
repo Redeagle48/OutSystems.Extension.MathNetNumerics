@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutSystems.Extension.MathNetNumerics", "OutSystems.Extension.MathNetNumerics.csproj", "{82A6F396-DE13-122F-24C2-7FBDB8CDE1ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutSystems.Extension.MathNetNumerics.UnitTests", "..\OutSystems.Extension.MathNetNumerics.UnitTests\OutSystems.Extension.MathNetNumerics.UnitTests.csproj", "{61A0C597-2919-420B-B394-A03F71B0FDEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82A6F396-DE13-122F-24C2-7FBDB8CDE1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A6F396-DE13-122F-24C2-7FBDB8CDE1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A6F396-DE13-122F-24C2-7FBDB8CDE1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A6F396-DE13-122F-24C2-7FBDB8CDE1ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A0C597-2919-420B-B394-A03F71B0FDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A0C597-2919-420B-B394-A03F71B0FDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A0C597-2919-420B-B394-A03F71B0FDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A0C597-2919-420B-B394-A03F71B0FDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57478CC2-929D-4F3C-8E24-A8423D150433}
+	EndGlobalSection
+EndGlobal
